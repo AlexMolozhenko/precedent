@@ -1,0 +1,3 @@
+<?php
+
+const DEFAULT_DIRECTORY_NAME = '..'.DIRECTORY_SEPARATOR.'App' ;
