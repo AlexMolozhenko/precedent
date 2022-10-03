@@ -21,7 +21,8 @@ class usersController extends AbstractController
         $login = filter_input(INPUT_POST,'login');
         $password = filter_input(INPUT_POST,'password');
 
-        $res = $this->usersService->login($login,$password);
+      echo  $this->usersService->login($login,$password)?'true' : 'false';
+
 //        function consoleLog($msg) {
 //            echo '<script type="text/javascript">' .
 //                'console.log(' . $msg . ');</script><br/>';
@@ -29,11 +30,14 @@ class usersController extends AbstractController
 //        consoleLog($login);
 //        consoleLog($password);
 //        consoleLog($res);
-//       var_dump($res);
-      return $res;
+
+
 
     }
     public function logout(){
+
+        $result = $this->usersService->logout();
+        echo $result;
 
     }
 }

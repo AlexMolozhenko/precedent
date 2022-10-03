@@ -13,11 +13,13 @@ class precedentListController extends AbstractController
 
     public function index()
     {
+        session_start();
         if(empty($_SESSION['login'])){
             $this->view->render('login');
         }else{
             $this->view->render('precedentList');
         }
+
 
     }
 
