@@ -15,6 +15,7 @@ class UsersService extends AbstractService
 
     }
 
+
     public function login($login,$password){
 
         $userPassHash = $this->usersModel->getPassword($login);
@@ -33,11 +34,16 @@ class UsersService extends AbstractService
 
     }
 
+    /**
+     * logout user
+     * @return bool
+     */
     public function logout(){
         session_start();
         unset($_SESSION['id']);
         unset($_SESSION['login']);
         unset($_SESSION['role']);
+
 
         return true;
     }
