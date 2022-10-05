@@ -44,7 +44,8 @@ window.onload = function(e){
             xhr.onreadystatechange = function(){
                 if(xhr.readyState === 4){
                     if(xhr.status === 200){
-                        if(this.responseText === true){
+
+                        if(this.responseText === 'true'){
                             redirect('/');
                         }else{
                             alert('TODO problem logout btn')
