@@ -34,10 +34,8 @@ class usersController extends AbstractController
 
 
     }
+
     public function logout(){
-
-        $result = $this->usersService->logout();
-        echo $result;
-
+        echo  $this->usersService->logout()?'true':'false';
     }
 }

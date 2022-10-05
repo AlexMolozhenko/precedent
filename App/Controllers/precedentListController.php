@@ -17,7 +17,10 @@ class precedentListController extends AbstractController
         if(empty($_SESSION['login'])){
             $this->view->render('login');
         }else{
-            $this->view->render('precedentList');
+            $precedentDoc = $this->precedentService->getListPrecedentDocument();
+
+            $this->view->render('precedentList',['precedentDoc'=>$precedentDoc]);
+
         }
 
 
