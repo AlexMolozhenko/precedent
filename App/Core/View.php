@@ -32,9 +32,21 @@ class View
      * @param string $pageTemplate
      * @param array $data
      */
-    public function render(string $pageTemplate, array $data = []){
+//    public function render(string $pageTemplate, array $data = []){
+//        extract($data);
+//        include_once ROOT_DIRECTORY . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $this->view_template_file.'.php';
+//    }
+
+    public function render(array $data = [])
+    {
         extract($data);
-        include_once ROOT_DIRECTORY . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $this->view_template_file.'.php';
+        include_once ROOT_DIRECTORY . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $this->view_template_file . '.php';
+    }
+
+    public function includePage(string $pageTemplate,array $data = [])
+    {
+        extract($data);
+include_once '..' . DIRECTORY_SEPARATOR . 'App' . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR . $this->view_template_dir . DIRECTORY_SEPARATOR . $pageTemplate . '.php';
     }
 
 
