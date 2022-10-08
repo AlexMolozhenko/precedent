@@ -8,7 +8,7 @@ class PrecedentService extends AbstractService
 {
     public function getListPrecedentDocument(){
        $precedentDoc =  $this->precedentModel->getAllDocument();
-       krsort($precedentDoc);
+//       krsort($precedentDoc['a_id']);
 
        return $precedentDoc;
     }
