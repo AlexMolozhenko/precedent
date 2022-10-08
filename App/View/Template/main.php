@@ -10,11 +10,13 @@
     <body>
 
 
-    <main>
-        <?php include_once '..'.DIRECTORY_SEPARATOR.'App' . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR .$this->view_template_dir. DIRECTORY_SEPARATOR .$pageTemplate.'.php';?>
+    <main id="main">
+<!--        --><?php //include_once '..'.DIRECTORY_SEPARATOR.'App' . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR .$this->view_template_dir. DIRECTORY_SEPARATOR .$pageTemplate.'.php';?>
         <div id="divResponseText"></div>
     </main>
     <footer><p>Precedent</p></footer>
+    <script src="../JS/editDocument.js" ></script>
+    <script src="../JS/precedentList.js" ></script>
     <script src="../JS/users.js" ></script>
     <script src="../JS/core.js" ></script>
     </body>

@@ -8,5 +8,5 @@
     <label>Password
         <input type="password" name="password"/>
     </label>
-    <button form="login_Form" type="button" id="btn_login" name="login">Login</button>
+    <button form="login_Form" type="button" id="btn_login" name="login" onclick="btn_login()">Login</button>
 </form>
