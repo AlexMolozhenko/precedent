@@ -14,20 +14,9 @@ class precedentListController extends AbstractController
     public function index()
     {
         $this->view->render();
-//        session_start();
-//        if(empty($_SESSION['login'])){
-//            $this->view->render('login');
-//        }else{
-//            $precedentDoc = $this->precedentService->getListPrecedentDocument();
-//
-//            $this->view->render('precedentList',['precedentDoc'=>$precedentDoc]);
-//
-//        }
     }
 
     public function  mainPage(){
-//        $this->view->testP('editDocument');
-
                 session_start();
         if(empty($_SESSION['login'])){
             $this->view->includePage('login');
@@ -37,17 +26,65 @@ class precedentListController extends AbstractController
             $this->view->includePage('precedentList',['precedentDoc'=>$precedentDoc]);
 
         }
-
-
-
     }
 
     public function editDocument(){
 
         $a_id = filter_input(INPUT_POST,'a_id');
-//        echo'get document==TODO</br>';
-//        echo"$a_id";
-        $this->view->includePage('editDocument',['a_id'=>$a_id]);
+        $document = $this->precedentService->getDocumentByID($a_id);
+        $allDecision = $this->precedentService->getAllDecision_id() ;
+        $allJustice = $this->precedentService->getAllJustice_id();
+        $allCourts = $this->precedentService->getAllCourts_id();
+        session_start();
+        $role = $_SESSION['role'];
+        $this->view->includePage('editDocument',['a_id'=>$a_id,
+            'document'=>$document,
+            'allDecision'=>$allDecision,
+            'allJustice'=>$allJustice,
+            'allCourts'=>$allCourts,
+            'role'=>$role,
+            ]);
+    }
+
+    public function getDecision(){
+        $a_id = filter_input(INPUT_POST,'a_id');
+
+        $docText = $this->precedentService->getDecision($a_id);
+        die(json_encode(array(
+            'docText' => $docText,
+        )));
+    }
+
+    public function updateDocument(){
+        $a_id= $_POST['a_id'];
+        $num_decision= $_POST['num_decision'];
+        $num_litigation= $_POST['num_litigation'];
+        $decision_id= $_POST['decision_id'];
+        $justice_id= $_POST['justice_id'];
+        $court_id= $_POST['court_id'];
+        $checkmark_id= $_POST['checkmark_id'];
+        $comments= $_POST['comments'];
+        $name_of_record= $_POST['name_of_record'];
+        $doc_header= $_POST['doc_header'];
+        $p_year= $_POST['p_year'];
+        $p_month= $_POST['p_month'];
+        $p_day= $_POST['p_day'];
+        $url_doc= $_POST['url_doc'];
+        $decision= $_POST['decision'];
+
+        $result = $this->precedentService->updateDocument($a_id,$num_decision,$url_doc,$decision_id,$justice_id,$court_id,$checkmark_id,$comments,$num_litigation,$name_of_record,$doc_header,$p_year,$p_month,$p_day,$decision);
+       exit(json_encode(array(
+          'result' => $result,
+       )));
+
+    }
+
+    public function deleteDocument(){
+        $a_id = $_POST['a_id'];
+        $result = $this->precedentService->deleteDocument($a_id);
+        exit(json_encode(array(
+            'result' => $result,
+        )));
     }
 
 

@@ -23,16 +23,6 @@ class usersController extends AbstractController
 
       echo  $this->usersService->login($login,$password)?'true' : 'false';
 
-//        function consoleLog($msg) {
-//            echo '<script type="text/javascript">' .
-//                'console.log(' . $msg . ');</script><br/>';
-//        }
-//        consoleLog($login);
-//        consoleLog($password);
-//        consoleLog($res);
-
-
-
     }
 
     public function logout(){
