@@ -32,17 +32,17 @@ class View
      * @param string $pageTemplate
      * @param array $data
      */
-//    public function render(string $pageTemplate, array $data = []){
-//        extract($data);
-//        include_once ROOT_DIRECTORY . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $this->view_template_file.'.php';
-//    }
-
     public function render(array $data = [])
     {
         extract($data);
         include_once ROOT_DIRECTORY . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $this->view_template_file . '.php';
     }
 
+    /**
+     * this method is responsible for connecting the required html page and passing data to it
+     * @param string $pageTemplate
+     * @param array $data
+     */
     public function includePage(string $pageTemplate,array $data = [])
     {
         extract($data);
