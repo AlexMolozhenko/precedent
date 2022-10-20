@@ -10,6 +10,9 @@ abstract class AbstractService
 
     protected $precedentModel;
 
+    /**
+     * connection of all necessary classes for working with the database for further inheritance
+     */
     public function __construct()
     {
         $this->usersModel = new UsersModel();

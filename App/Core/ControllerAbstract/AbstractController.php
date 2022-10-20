@@ -14,6 +14,10 @@ abstract class AbstractController
 
     protected $precedentService;
 
+    /**
+     * connection of all necessary services for further inheritance
+     * @param $template
+     */
     public function __construct($template){
         $this->view = new View($template);
         $this->usersService = new UsersService();
