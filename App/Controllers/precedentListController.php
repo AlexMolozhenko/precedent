@@ -11,6 +11,7 @@ class precedentListController extends AbstractController
         parent::__construct('main');
     }
 
+
     public function index()
     {
         $this->view->render();
@@ -23,8 +24,22 @@ class precedentListController extends AbstractController
         }else{
             $precedentDoc = $this->precedentService->getListPrecedentDocument();
 
-            $this->view->includePage('precedentList',['precedentDoc'=>$precedentDoc]);
+            $actionPage = $_POST['action'];
+            $last_key = $_POST['last_key'];
+            $first_key = $_POST['first_key'];
+            $numberLastElement = $last_key + 1;
+            $array_length = 25;
 
+            $pagesQuantity = $this->precedentService->pagesQuantity($precedentDoc,$array_length);
+
+            $slicePrecedentDoc = $this->precedentService->pageListDocument($actionPage,$first_key,$last_key,$array_length,$precedentDoc);
+
+            $numberPage = $this->precedentService->numberPage($slicePrecedentDoc,$array_length);
+
+            $this->view->includePage('precedentList',['precedentDoc'=>$slicePrecedentDoc,
+                'pagesQuantity'=>$pagesQuantity,
+                'numberPage'=>$numberPage,
+                ]);
         }
     }
 
@@ -81,7 +96,8 @@ class precedentListController extends AbstractController
 
     public function deleteDocument(){
         $a_id = $_POST['a_id'];
-        $result = $this->precedentService->deleteDocument($a_id);
+        $num_litigation= $_POST['num_litigation'];
+        $result = $this->precedentService->deleteDocument($a_id,$num_litigation);
         exit(json_encode(array(
             'result' => $result,
         )));
