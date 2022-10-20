@@ -17,7 +17,6 @@ class UsersModel extends AbstractModel implements InterfaceUsers
      */
     public function getPassword($login){
         $sql="SELECT password FROM `users` WHERE login = '$login';";
-
         $result = $this->db->query($sql);
         if($this->db->errno !==0 ){
             throw new \Exception($this->db->errno);
@@ -33,12 +32,7 @@ class UsersModel extends AbstractModel implements InterfaceUsers
      */
     public function getUser($login)
     {
-//        $sql="SELECT id, login ,role FROM `users` WHERE login = '$login' AND password = '$password' ;";
-
         $sql="SELECT id, login ,role FROM `users` WHERE login = '$login';";
-//        var_dump($login);
-//        $sql="SELECT * FROM `users` WHERE login='$login' ;";
-
         $result = $this->db->query($sql);
         if($this->db->errno !==0 ){
             throw new \Exception($this->db->errno);
