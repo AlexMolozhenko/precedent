@@ -17,11 +17,12 @@
                     <th>Додатково</th>
                 </tr>
 
-                    <?php foreach ($precedentDoc as $doc):?>
+
+                    <?php foreach ($precedentDoc as $key=>$doc):?>
                     <tr id="<?=$doc['a_id']?>">
+                        <?=$key?>
                         <form name="<?=$doc['a_id']?>">
                             <input type="hidden" name="a_id" value="<?=$precedentDoc['a_id']?>"/>
-    <!--                        <td>--><?//=$doc['a_id']?><!--</td>-->
                             <td><?=$doc['name_of_record']?></td>
                             <td><?=$doc['num_decision']?></td>
                             <td><?=$doc['num_litigation']?></td>
@@ -30,10 +31,17 @@
                             <td><button form="<?=$doc['a_id']?>" type="button" name="btn_getDocument" id="btn_getDocument" onclick="editDocument(<?=$doc['a_id']?>)">редагування</button></td>
                     </tr>
 
-
-<!--                                --><?php //var_dump($doc);?>
                     <?php endforeach;?>
             </table>
+            <h4 id="numberPage">Cторінка:<?=$numberPage?></h4>
+            <h4>Cторінок:<?=$pagesQuantity?></h4>
+            <form name="keyPrecedentDoc">
+                <input type="hidden" name="first_key" value="<?= array_key_first($precedentDoc)?>"/>
+                <input type="hidden" name="last_key" value="<?= array_key_last($precedentDoc)?>"/>
+            </form>
+            <button type="button" form="keyPrecedentDoc" name="last_table_page" id="last_table_page" onclick="pageListDocument('last')">Попередня сторінка</button>
+
+            <button type="button" form="keyPrecedentDoc" name="next_table_page" id="next_table_page" onclick="pageListDocument('next')">Наступна сторінка</button>
         <?php endif;?>
 
 
