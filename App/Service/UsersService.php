@@ -16,6 +16,13 @@ class UsersService extends AbstractService
     }
 
 
+    /**
+     * user verification and saving his data to the session
+     * @param $login
+     * @param $password
+     * @return bool
+     * @throws \Exception
+     */
     public function login($login,$password){
 
         $userPassHash = $this->usersModel->getPassword($login);
@@ -43,8 +50,6 @@ class UsersService extends AbstractService
         unset($_SESSION['id']);
         unset($_SESSION['login']);
         unset($_SESSION['role']);
-
-
         return true;
     }
 }
