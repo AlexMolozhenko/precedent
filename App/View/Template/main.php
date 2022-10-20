@@ -11,14 +11,8 @@
     </head>
     <body>
 
-
-
-    <main id="main">
-<!--        --><?php //include_once '..'.DIRECTORY_SEPARATOR.'App' . DIRECTORY_SEPARATOR . VIEW_DIR . DIRECTORY_SEPARATOR .$this->view_template_dir. DIRECTORY_SEPARATOR .$pageTemplate.'.php';?>
-
-    </main>
+    <main id="main"></main>
     <div id="divCreditor"  ></div>
-
 
     <footer><p>Precedent</p></footer>
 
