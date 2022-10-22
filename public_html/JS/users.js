@@ -17,8 +17,6 @@
                 if(xhr.status === 200){
                     if(this.responseText === 'true'){
                         mainPage('GET','precedentList/mainPage');
-                    }else{
-                        alert('TODO error login ');
                     }
 
                 }
@@ -43,8 +41,6 @@ function btn_logout(){
 
                     mainPage('GET','precedentList/mainPage');
 
-                }else{
-                    alert('TODO problem logout btn')
                 }
             }
         }

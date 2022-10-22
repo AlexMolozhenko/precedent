@@ -32,6 +32,33 @@ function getDecision(a_id){
 }
 
 
+
+function searchDocument(){
+    let form = document.forms.search_document_form;
+    let formData = new FormData(form);
+    let xhr  = new XMLHttpRequest();
+    xhr.open('POST','precedentList/searchDocument');
+    xhr.send(formData);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 ){
+            if(xhr.status === 200){
+
+                IncludePage(this.responseText);
+
+                let element =  document.getElementById(formData.get('search_document').trim());
+                let tr = element.parentNode;
+                tr.style.backgroundColor="#f5a4b7";
+                document.body.onclick = function (e){
+                    tr.style.backgroundColor="";
+                    e.preventDefault();
+                }
+
+
+            }
+        }
+    }
+}
+
 /**
  *a function that sends a request to the server to get all the information about the document and connects the html with the edit form
  * @param a_id

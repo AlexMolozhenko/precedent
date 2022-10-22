@@ -57,8 +57,6 @@ function saveDocument(){
                 let response = JSON.parse(this.responseText);
                 if(response.result == true){
                     mainPage('GET','precedentList/mainPage');
-                }else{
-                    alert('TODO error SAVE ');
                 }
                 }
             }
@@ -81,8 +79,6 @@ function deleteDocument(){
                 let response =JSON.parse(this.responseText);
                 if(response.result == true){
                     mainPage('GET','precedentList/mainPage');
-                }else{
-                    alert('TODO error DELETE ');
                 }
             }
 
