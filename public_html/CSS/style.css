@@ -1,0 +1,63 @@
+html {
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color:#afc0bc;
+}
+main {
+    flex: 1;
+    /*display: flex;*/
+    /*position: initial;*/
+    margin:auto;
+    width:85%;
+    /*max-height:80%;*/
+    /*margin-left:2%;*/
+    /*margin-right:2%;*/
+    background-color: rgba(255,246,234,0.56)
+    /*width: 80%;*/
+}
+footer{
+    background-color: #566e64;
+    position: initial;
+    bottom: 0;
+    width: 100%;
+    height:30px;
+    border-top:1px solid #000000;
+    display:flex;
+    justify-content:center;
+    left:0px;
+
+}
+#btn_page{
+    position: initial;
+    display:flex;
+    bottom: 0;
+    width: 100%;
+}
+
+.div_form_login{
+    position: initial;
+    display:flex;
+    justify-content: center;
+    margin:auto;
+    margin-top:10%;
+    width:300px;
+    height:250px;
+    background-color:#afc0bc;
+    border-radius: 15px;
+    /*align-items: center;*/
+    /*box-sizing: border-box;*/
+}
+.DocForm{
+    margin:auto;
+    width:70%;
+}
+.DocForm>input{
+    width:100%;
+}
+#mytextarea{
+    min-height: 500px;
+}
