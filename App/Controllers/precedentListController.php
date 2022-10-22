@@ -27,7 +27,6 @@ class precedentListController extends AbstractController
             $actionPage = $_POST['action'];
             $last_key = $_POST['last_key'];
             $first_key = $_POST['first_key'];
-            $numberLastElement = $last_key + 1;
             $array_length = 25;
 
             $pagesQuantity = $this->precedentService->pagesQuantity($precedentDoc,$array_length);
@@ -41,6 +40,23 @@ class precedentListController extends AbstractController
                 'numberPage'=>$numberPage,
                 ]);
         }
+    }
+
+    public function searchDocument(){
+        $search_document = trim($_POST['search_document']);
+        $array_length = 25;
+        $precedentDoc = $this->precedentService->getListPrecedentDocument();
+        $pagesQuantity = $this->precedentService->pagesQuantity($precedentDoc,$array_length);
+
+        $searchDocument= $this->precedentService->searchDocument($precedentDoc,$search_document);
+
+        $numberPage = $this->precedentService->numberPage($searchDocument['slicePrecedentDoc'],$array_length);
+
+
+         $this->view->includePage('precedentList',['precedentDoc'=>$searchDocument['slicePrecedentDoc'],
+            'pagesQuantity'=>$pagesQuantity,
+            'numberPage'=>$numberPage,
+       ]);
     }
 
     public function editDocument(){
