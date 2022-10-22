@@ -74,6 +74,33 @@ class PrecedentService extends AbstractService
 
     }
 
+
+    /**
+     *the method iterates over the array, checking if the values match; if a match is found, then an array of a certain size with these values is returned
+     * @param $precedentDoc
+     * @param $search_document
+     * @return array|void
+     */
+    public function searchDocument($precedentDoc,$search_document){
+        $item_search=[];
+        foreach($precedentDoc as $key=>$document){
+            if($document['num_decision']== $search_document || $document['num_litigation'] == $search_document  ){
+                $item_search['a_id']= $document['a_id'];
+                $item_search['key']= $key;
+            }
+        }
+        $array_length = 25;
+        for($i=0,$offSet = 0;$i <= count($precedentDoc);$i++,$offSet +=25){
+
+            $slicePrecedentDoc = array_slice($precedentDoc,$offSet,$array_length,true) ;
+            if(array_key_exists($item_search['key'], $slicePrecedentDoc)) {
+                $item_search['slicePrecedentDoc']=$slicePrecedentDoc;
+                return $item_search;
+            }
+
+        }
+    }
+
     /**
      * the method gets the document by id
      * @param $id
