@@ -55,50 +55,6 @@ class PrecedentModel extends AbstractModel implements InterfacePrecedent
         return $result->fetch_array(MYSQLI_ASSOC);
     }
 
-    /**
-     * get a list of all kinds of Decision
-     * @return mixed
-     * @throws \Exception
-     */
-    public function getAllDecision_id(){
-        $sql ="SELECT * FROM `t_decisions` ;";
-        $result = $this->db->query($sql);
-        if($this->db->errno !==0 ){
-            throw new \Exception($this->db->errno);
-        }
-        return $result->fetch_all(MYSQLI_ASSOC);
-
-    }
-
-    /**
-     * get a list of all kinds of Justice
-     * @return mixed
-     * @throws \Exception
-     */
-    public function getAllJustice_id(){
-        $sql ="SELECT * FROM `t_justices` ;";
-        $result = $this->db->query($sql);
-        if($this->db->errno !==0 ){
-            throw new \Exception($this->db->errno);
-        }
-        return $result->fetch_all(MYSQLI_ASSOC);
-
-    }
-
-    /**
-     * get a list of all kinds of Courts
-     * @return mixed
-     * @throws \Exception
-     */
-    public function getAllCourts_id(){
-        $sql ="SELECT * FROM `t_courts` ;";
-        $result = $this->db->query($sql);
-        if($this->db->errno !==0 ){
-            throw new \Exception($this->db->errno);
-        }
-        return $result->fetch_all(MYSQLI_ASSOC);
-
-    }
 
     /**
      * document update
@@ -151,19 +107,5 @@ class PrecedentModel extends AbstractModel implements InterfacePrecedent
         return  $result;
     }
 
-    /**
-     * save history of changes
-     * @param $num_litigation
-     * @param $user_id
-     * @param $action
-     * @throws \Exception
-     */
-    public function history_of_changes($num_litigation,$user_id,$action){
-        $sql="INSERT INTO `history_of_changes` (num_litigation,user_id,action) VALUES ('$num_litigation','$user_id','$action');";
-        $this->db->query($sql);
-        if($this->db->errno !==0 ) {
-            throw new \Exception($this->db->errno);
-        }
-    }
 
 }

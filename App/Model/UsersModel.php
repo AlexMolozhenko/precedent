@@ -4,7 +4,7 @@ namespace Model;
 
 use Core\ImplementsModel\InterfaceUsers;
 
-use core\ModelAbstract\AbstractModel;
+use Core\ModelAbstract\AbstractModel;
 
 
 class UsersModel extends AbstractModel implements InterfaceUsers
