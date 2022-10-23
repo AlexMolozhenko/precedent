@@ -129,7 +129,7 @@ class PrecedentService extends AbstractService
      * @throws \Exception
      */
     public function getAllDecision_id(){
-        $allDecision = $this->precedentModel->getAllDecision_id();
+        $allDecision = $this->decisionModel->getAllDecision_id();
         return $allDecision;
     }
 
@@ -139,7 +139,7 @@ class PrecedentService extends AbstractService
      * @throws \Exception
      */
     public function getAllJustice_id(){
-        $allJustice = $this->precedentModel->getAllJustice_id();
+        $allJustice = $this->justiceModel->getAllJustice_id();
         return $allJustice;
     }
 
@@ -149,7 +149,7 @@ class PrecedentService extends AbstractService
      * @throws \Exception
      */
     public function getAllCourts_id(){
-        $allCourts = $this->precedentModel->getAllCourts_id();
+        $allCourts = $this->courtsModel->getAllCourts_id();
         return $allCourts;
     }
 
@@ -178,7 +178,7 @@ class PrecedentService extends AbstractService
       $result = $this->precedentModel->updateDocument($a_id,$num_decision,$url_doc,$decision_id,$justice_id,$court_id,$checkmark_id,$comments,$num_litigation,$name_of_record,$doc_header,$p_year,$p_month,$p_day,$decision);
       session_start();
       $user_id = $_SESSION['id'];
-      $this->precedentModel->history_of_changes($num_litigation,$user_id,'update');
+      $this->historyOfChangeModel->history_of_changes($num_litigation,$user_id,'update');
 
         return $result;
     }
@@ -194,7 +194,7 @@ class PrecedentService extends AbstractService
         $result = $this->precedentModel->deleteDocument($a_id);
         session_start();
         $user_id = $_SESSION['id'];
-        $this->precedentModel->history_of_changes($num_litigation,$user_id,'delete');
+        $this->historyOfChangeModel->history_of_changes($num_litigation,$user_id,'delete');
         return $result;
     }
 
