@@ -25,11 +25,8 @@ class precedentListController extends AbstractController
             $precedentDoc = $this->precedentService->getListPrecedentDocument();
 
             $actionPage = !empty($_POST['action'])?$_POST['action']:'';
-            // $actionPage = $_POST['action'];
             $last_key = !empty($_POST['last_key'])?$_POST['last_key']:'';
-            // $last_key = $_POST['last_key'];
             $first_key = !empty($_POST['first_key'])?$_POST['first_key']:'';
-            // $first_key = $_POST['first_key'];
             $array_length = 25;
 
             $pagesQuantity = $this->precedentService->pagesQuantity($precedentDoc,$array_length);

@@ -34,7 +34,6 @@
                     <?php foreach ($precedentDoc as $key=>$doc):?>
                     <tr id="<?=$doc['a_id']?>">
                         <form name="<?=$doc['a_id']?>">
-                            <input type="hidden" name="a_id" value="<?=$precedentDoc['a_id']?>"/>
                             <td ><?=$doc['name_of_record']?></td>
                             <td id="<?=$doc['num_decision']?>"><?=$doc['num_decision']?></td>
                             <td id="<?=$doc['num_litigation']?>"><?=$doc['num_litigation']?></td>
